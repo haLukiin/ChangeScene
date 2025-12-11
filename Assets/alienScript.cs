@@ -10,6 +10,7 @@ public class alienScript : MonoBehaviour
     public GameObject AdvicePopup;
     
     public TMP_Text adviceText;
+    public debrisSpawner DebrisSpawner;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -27,7 +28,7 @@ public class alienScript : MonoBehaviour
         if (other.CompareTag("Player"))
         {
 
-            GiveAdvice("Be carefull out there, human!");
+            GiveAdvice("Be carefull out there, human! \n Collect 5 of The Debris to progress. \n Then Enter The Black Hole To Continue Your Journey In To The Unknown");
             
 
 
@@ -37,7 +38,8 @@ public class alienScript : MonoBehaviour
     void GiveAdvice(string message)
     {
         adviceText.text = message;  
-        AdvicePopup.SetActive(true);    
+        AdvicePopup.SetActive(true);
+        DebrisSpawner.SpawnDebrisWave();
     }
 
   

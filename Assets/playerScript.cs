@@ -4,6 +4,7 @@ public class playerScript : MonoBehaviour
 {
     public float playerSpeed = 5;
 
+    public static playerScript instance;    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -34,9 +35,19 @@ public class playerScript : MonoBehaviour
         }
        
     }
+    private void Awake()
+    {
+       if (instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        instance = this;
+        DontDestroyOnLoad(gameObject);  
+    }
 
-    
-    
 
-    
+
+
+
 }
